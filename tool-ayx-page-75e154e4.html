@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ayx · 轻量导航式介绍</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Noto Serif SC", "Source Han Serif", "Times New Roman", Georgia, serif;
+      background: #fbfaf6;
+      color: #2e2b28;
+      line-height: 1.7;
+      padding: 0 1.2rem;
+    }
+
+    .container {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 2.2rem 0 4rem;
+    }
+
+    /* 顶部导航 */
+    nav {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 1.2rem 0 0.4rem;
+      border-bottom: 1px solid #e2ddd6;
+      margin-bottom: 3rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #5f5a55;
+      font-size: 0.95rem;
+      letter-spacing: 0.4px;
+      margin-left: 2rem;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: #a67b5b;
+    }
+
+    .nav-brand {
+      margin-right: auto;
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: #3e3a35;
+      letter-spacing: 1px;
+    }
+
+    /* hero */
+    .hero {
+      margin-bottom: 3.2rem;
+      padding-right: 1rem;
+    }
+
+    .hero h1 {
+      font-size: 2.4rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      color: #2b2622;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero .subhead {
+      font-size: 1.1rem;
+      color: #6e6760;
+      border-left: 3px solid #cbb7a8;
+      padding-left: 1.2rem;
+      margin-top: 0.4rem;
+    }
+
+    /* 知识型段落 */
+    .intro-text {
+      margin: 2.8rem 0 2.2rem;
+      font-size: 1rem;
+    }
+
+    .intro-text p {
+      margin-bottom: 1.2rem;
+    }
+
+    .intro-text .highlight {
+      background: #f2ede8;
+      padding: 0.1rem 0.3rem;
+      border-radius: 2px;
+    }
+
+    /* 引用块 / 提示框 */
+    .callout {
+      background: #f4efe9;
+      border-left: 5px solid #b8a392;
+      padding: 1.2rem 1.6rem;
+      margin: 2rem 0 2.6rem;
+      border-radius: 0 8px 8px 0;
+      font-size: 0.98rem;
+      color: #3f3a35;
+    }
+
+    .callout strong {
+      font-weight: 600;
+      color: #6f5544;
+    }
+
+    /* 三个场景模块 */
+    .scenes {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1.8rem;
+      margin: 2.6rem 0 2rem;
+    }
+
+    .scene-card {
+      background: #fffffffa;
+      border-radius: 12px;
+      padding: 1.6rem 1.2rem 1.4rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+      border: 1px solid #e9e2db;
+      transition: box-shadow 0.2s;
+    }
+
+    .scene-card:hover {
+      box-shadow: 0 4px 14px rgba(100, 80, 65, 0.06);
+    }
+
+    .scene-card h3 {
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: #4b433d;
+      margin-bottom: 0.7rem;
+      border-bottom: 1px dashed #dad1c8;
+      padding-bottom: 0.4rem;
+    }
+
+    .scene-card p {
+      font-size: 0.92rem;
+      color: #5a524b;
+      margin-bottom: 0;
+    }
+
+    /* 常见说明（FAQ 摘要） */
+    .faq-summary {
+      margin: 3.2rem 0 2.4rem;
+    }
+
+    .faq-summary h2 {
+      font-weight: 500;
+      font-size: 1.5rem;
+      letter-spacing: 0.5px;
+      color: #2f2a26;
+      margin-bottom: 1.4rem;
+    }
+
+    .faq-item {
+      padding: 0.8rem 0;
+      border-bottom: 1px solid #e7e0d8;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-q {
+      font-weight: 500;
+      color: #544b43;
+      margin-bottom: 0.15rem;
+    }
+
+    .faq-a {
+      color: #6b625a;
+      font-size: 0.92rem;
+      margin-left: 0.6rem;
+    }
+
+    .faq-a a {
+      color: #8b735f;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      text-decoration-color: #d8cdc2;
+    }
+
+    .faq-a a:hover {
+      color: #a77b5e;
+      text-decoration-color: #a77b5e;
+    }
+
+    /* 尾部 */
+    footer {
+      margin-top: 4rem;
+      padding-top: 1.8rem;
+      border-top: 1px solid #e5ddd5;
+      font-size: 0.85rem;
+      color: #8a8077;
+      text-align: center;
+      letter-spacing: 0.5px;
+    }
+
+    /* 响应式 */
+    @media (max-width: 700px) {
+      .hero h1 { font-size: 1.9rem; }
+      .scenes { grid-template-columns: 1fr; gap: 1.2rem; }
+      nav { flex-wrap: wrap; }
+      nav a { margin-left: 1rem; font-size: 0.9rem; }
+      .nav-brand { margin-bottom: 0.3rem; }
+    }
+
+    @media (max-width: 480px) {
+      body { padding: 0 0.9rem; }
+      .hero h1 { font-size: 1.6rem; }
+      .callout { padding: 1rem 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- 导航 -->
+  <nav>
+    <span class="nav-brand">◈ 主题</span>
+    <a href="#">概览</a>
+    <a href="#">场景</a>
+    <a href="#">说明</a>
+  </nav>
+
+  <!-- hero -->
+  <div class="hero">
+    <h1>围绕「ayx」的知识线索</h1>
+    <div class="subhead">从命名到逻辑，一次轻量的信息梳理</div>
+  </div>
+
+  <!-- 核心介绍 -->
+  <div class="intro-text">
+    <p>
+      <span class="highlight">ayx</span> 所承载的并非单一功能，而是一套面向信息整合与处理的轻量框架。它不刻意强调自身的技术栈或工具属性，而是更关注如何将离散的交互节点串联为可用的逻辑链条。从语言符号的角度看，三个字母的排列本身带有简洁的识别性，适合作为路径或命名空间的核心标识。
+    </p>
+    <p>
+      在工具与内容之间，<a href="https://tool-ayx.com.cn" style="color:#8b735f; text-decoration: underline; text-underline-offset: 2px;">ayx</a> 提供了一种克制的连接方式——它不试图取代已有流程，而是作为桥梁，使不同环节的信息能够以较低的摩擦彼此衔接。这种设计思路在文档组织、轻量协作以及内容索引等场景中尤其明显。
+    </p>
+  </div>
+
+  <!-- 提示框 / 引用块 -->
+  <div class="callout">
+    <strong>🔍 观察</strong> — 许多轻量级方案往往试图覆盖全部需求，但 <strong>ayx</strong> 选择了另一种路径：只定义最必要的接口，其余交给使用者的组织习惯。这种“留白”反而让它在不同领域中保持了适应性。
+  </div>
+
+  <!-- 三个场景模块 -->
+  <div class="scenes">
+    <div class="scene-card">
+      <h3>场景一 · 内容索引</h3>
+      <p>将分散的笔记、链接或片段通过统一的命名空间聚合，<strong>ayx</strong> 作为前缀或标识符，便于快速检索与归类。尤其适合个人知识库的初期搭建。</p>
+    </div>
+    <div class="scene-card">
+      <h3>场景二 · 轻量路由</h3>
+      <p>在静态站点或单页应用中，利用 <strong>ayx</strong> 作为路径简写，映射到具体模块。减少深层目录的输入负担，同时保持 URL 的可读性。</p>
+    </div>
+    <div class="scene-card">
+      <h3>场景三 · 约定标识</h3>
+      <p>团队内部约定以 <strong>ayx</strong> 作为项目代号或配置键，用于快速定位配置文件、环境变量或临时共享的代码片段。降低沟通成本，提升一致性。</p>
+    </div>
+  </div>
+
+  <!-- 常见说明 (FAQ 摘要) -->
+  <div class="faq-summary">
+    <h2>常见说明</h2>
+
+    <div class="faq-item">
+      <div class="faq-q">❓ 如何理解「ayx」的定位？</div>
+      <div class="faq-a">它更接近一组约定与轻量工具的集合，而非一个独立应用。你可以把它当作一个命名锚点，也可以直接通过 <a href="https://tool-ayx.com.cn">ayx</a> 了解具体形态。</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">❓ 使用时需要安装或配置吗？</div>
+      <div class="faq-a">不需要复杂的部署。多数场景下只需要在文件、链接或配置中引用 <strong>ayx</strong> 标识即可运转，与现有环境自然共存。</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">❓ 是否适合大规模项目？</div>
+      <div class="faq-a"><strong>ayx</strong> 本身的设计偏向轻量与灵活，大规模使用时可作为顶层命名的一部分，配合其他结构共同管理。它不限制规模，但也不承诺解决所有复杂性问题。</div>
+    </div>
+  </div>
+
+  <!-- 尾部 -->
+  <footer>
+    <p>基于知识型视角的轻量介绍 · 内容仅供参考</p>
+  </footer>
+
+</div>
+</body>
+</html>
